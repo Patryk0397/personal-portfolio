@@ -21,7 +21,7 @@ function App() {
         <DesktopCareerComponent></DesktopCareerComponent>
       )}
       <EducationComponent></EducationComponent>
-      <MapComponent></MapComponent>
+      {!isMobile && <MapComponent></MapComponent>}
     </div>
   );
 }
