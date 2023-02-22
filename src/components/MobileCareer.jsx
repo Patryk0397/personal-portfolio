@@ -121,7 +121,7 @@ export default function MobileCareerComponent() {
                       padding: "5px",
                     }}
                   ></Date>
-                  <h4 style={{ paddingLeft: "5%" }}>{job?.dates}</h4>
+                  <h5>{job?.dates}</h5>
                 </div>
                 <div
                   style={{
@@ -133,7 +133,7 @@ export default function MobileCareerComponent() {
                   <Location
                     style={{ height: "50px", width: "50px", padding: "5px" }}
                   ></Location>
-                  <h4 style={{ paddingLeft: "5%" }}>{job?.location}</h4>
+                  <h5>{job?.location}</h5>
                 </div>
               </div>
             </Paper>
