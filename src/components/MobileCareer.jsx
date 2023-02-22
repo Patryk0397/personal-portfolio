@@ -92,7 +92,7 @@ export default function DesktopCareerComponent() {
                 <ul>
                   {job?.tasks.map((task, index) => {
                     return (
-                      <li style={{ fontSize: "20px" }} key={index}>
+                      <li style={{ fontSize: "16px" }} key={index}>
                         {task}
                       </li>
                     );
