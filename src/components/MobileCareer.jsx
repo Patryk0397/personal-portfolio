@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Paper } from "@mui/material";
 import { jobs } from "../constants/jobs";
 
@@ -7,7 +7,7 @@ import { ReactComponent as Tm8 } from "../media/tm8.svg";
 import { ReactComponent as Date } from "../media/date.svg";
 import { ReactComponent as Location } from "../media/location.svg";
 
-export default function DesktopCareerComponent() {
+export default function MobileCareerComponent() {
   const styles = {
     main: {
       display: "flex",
@@ -76,7 +76,7 @@ export default function DesktopCareerComponent() {
                   {job.companyLogo === "DPD" ? (
                     <Dpd style={{ opacity: "50%", width: "50%" }}></Dpd>
                   ) : (
-                    <Tm8 style={{ opacity: "50%", width: "50%" }}></Tm8>
+                    <Tm8 style={{ opacity: "50%", width: "50%", paddingTop: "50px" }}></Tm8>
                   )}
                 </div>
                 <h2 style={{ display: "flex", justifyContent: "center" }}>{job.title}</h2>
@@ -92,7 +92,7 @@ export default function DesktopCareerComponent() {
                 <ul>
                   {job?.tasks.map((task, index) => {
                     return (
-                      <li style={{ fontSize: "16px" }} key={index}>
+                      <li style={{ fontSize: "14px" }} key={index}>
                         {task}
                       </li>
                     );
@@ -111,27 +111,29 @@ export default function DesktopCareerComponent() {
                   style={{
                     justifyContent: "start",
                     display: "flex",
+                    alignItems: "center"
                   }}
                 >
                   <Date
                     style={{
-                      height: "75px",
-                      width: "75px",
+                      height: "50px",
+                      width: "50px",
                       padding: "5px",
                     }}
                   ></Date>
-                  <h3 style={{ paddingLeft: "5%" }}>{job?.dates}</h3>
+                  <h4 style={{ paddingLeft: "5%" }}>{job?.dates}</h4>
                 </div>
                 <div
                   style={{
                     justifyContent: "start",
                     display: "flex",
+                    alignItems: "center"
                   }}
                 >
                   <Location
-                    style={{ height: "75px", width: "75px", padding: "5px" }}
+                    style={{ height: "50px", width: "50px", padding: "5px" }}
                   ></Location>
-                  <h3 style={{ paddingLeft: "5%" }}>{job?.location}</h3>
+                  <h4 style={{ paddingLeft: "5%" }}>{job?.location}</h4>
                 </div>
               </div>
             </Paper>
