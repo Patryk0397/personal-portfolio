@@ -71,7 +71,6 @@ export default function LandingPage() {
           width: "50%",
           height: isMobile ? "25%" : "50%",
           maskImage: "linear-gradient(to left, transparent 15%, black 100%);",
-          paddingTop: isMobile && "60px",
         }}
         alt="The house from the offer."
         src={require("../media/milan.jpeg")}
