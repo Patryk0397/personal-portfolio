@@ -1,6 +1,6 @@
 import { Paper } from "@mui/material";
+import { ReactWorldCountriesMap } from "react-world-countries-map";
 import * as React from "react";
-
 export default function MapComponent() {
   const styles = {
     main: {
@@ -26,16 +26,22 @@ export default function MapComponent() {
   };
 
   const data = [
-    { country: "cn", value: 1389618778 }, // china
-    { country: "in", value: 1311559204 }, // india
-    { country: "us", value: 331883986 }, // united states
-    { country: "id", value: 264935824 }, // indonesia
-    { country: "pk", value: 210797836 }, // pakistan
-    { country: "br", value: 210301591 }, // brazil
-    { country: "ng", value: 208679114 }, // nigeria
-    { country: "bd", value: 161062905 }, // bangladesh
-    { country: "ru", value: 141944641 }, // russia
-    { country: "mx", value: 127318112 }, // mexico
+    { country: "se", value: "2019" }, // sweden 1
+    { country: "us", value: "2022" }, // united states 2
+    { country: "th", value: "2020" }, // thailand 2
+    { country: "au", value: "2019" }, // australia 3
+    { country: "es", value: "2015" }, // spain 6
+    { country: "ua", value: "2019" }, // ukraine 1
+    { country: "nl", value: "2017" }, // netherlands 1
+    { country: "pt", value: "2019" }, // portugal 2
+    { country: "gr", value: "2022" }, // greece 5
+    { country: "it", value: "2021" }, // italy 3
+    { country: "de", value: "2022" }, // germany 1
+    { country: "is", value: "2022" }, // iceland 1
+    { country: "tr", value: "2013" }, // turkey 1
+    { country: "hu", value: "2019" }, // hungary 1
+    { country: "ee", value: "2017" }, // estonia 1
+    { country: "fi", value: "2017" }, // finland 1
   ];
 
   return (
@@ -50,7 +56,24 @@ export default function MapComponent() {
           justifyContent: "center",
         }}
       >
-
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
+          <h2>{`Countries Visited: ${data.length}`}</h2>
+          <h2>Cities Visited: 30</h2>
+          <h2> Flights Taken: Too many to count</h2>
+        </div>
+        <ReactWorldCountriesMap
+          color="red"
+          title=""
+          value-suffix=""
+          size="lg"
+          data={data}
+        />
       </Paper>
     </div>
   );
