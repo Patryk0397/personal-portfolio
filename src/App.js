@@ -1,20 +1,25 @@
 import "./App.css";
 import LandingPage from "./components/LandingPage";
-import ResponsiveAppBar from "./components/ResponsiveAppBar";
-import CareerComponent from "./components/Career";
+import DesktopCareerComponent from "./components/DesktopCareer";
+import MobileCareerComponent from "./components/MobileCareer";
 import SkillsComponent from "./components/Skills";
 import EducationComponent from "./components/Education";
-import React, { useEffect, useRef } from "react";
+import React, { useState } from "react";
 import MapComponent from "./components/Map";
 
 function App() {
+  const [width, setWidth] = useState(window.innerWidth);
+  const isMobile = width < 1200;
 
   return (
     <div className="App">
-      <ResponsiveAppBar  scrollToElement={() => {}}></ResponsiveAppBar>
       <LandingPage></LandingPage>
       <SkillsComponent></SkillsComponent>
-      <CareerComponent></CareerComponent>
+      {isMobile ? (
+        <MobileCareerComponent></MobileCareerComponent>
+      ) : (
+        <DesktopCareerComponent></DesktopCareerComponent>
+      )}
       <EducationComponent></EducationComponent>
       <MapComponent></MapComponent>
     </div>
