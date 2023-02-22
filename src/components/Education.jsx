@@ -1,6 +1,10 @@
 import { Paper } from "@mui/material";
 import { schools } from "../constants/education";
+import { useState } from "react";
 const EducationComponent = () => {
+
+  const [width, setWidth] = useState(window.innerWidth);
+  const isMobile = width < 1200;
 
   const styles = {
     main: {
@@ -13,11 +17,12 @@ const EducationComponent = () => {
     paperContainer: {
       width: "100%",
       padding: "20px",
-      display: "flex",
       justifyContent: "space-between",
+      display: "flex",
+      flexDirection: isMobile ? "column" : "row",
     },
     schoolContainer: {
-      width: "100%",
+      width: isMobile ? null : "100%",
       margin: "15px",
       padding: "10px",
       textAlign: "center",
@@ -38,7 +43,6 @@ const EducationComponent = () => {
         elevation={6}
         sx={styles.paperContainer}
       >
-
         {schools.map((school, index) => {
           return (
             <Paper key={index} variant="elevation" elevation={2} sx={styles.schoolContainer}>
