@@ -20,6 +20,13 @@ export default function SkillsComponent() {
       right: "0",
       padding: "20px",
     },
+    skillContainer: {
+      width: "100%",
+      padding: "20px",
+      display: "flex",
+      flexWrap: "wrap",
+      justifyContent: "space-between"
+    },
     jobDescriptionContainer: {
       width: "100%",
       marginLeft: "50px",
@@ -40,13 +47,7 @@ export default function SkillsComponent() {
       <Paper
         variant="elevation"
         elevation={6}
-        sx={{
-          width: "100%",
-          padding: "20px",
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-between"
-        }}
+        sx={styles.skillsContainer}
       >
         <Tooltip sx={styles.tooltip} title={"JavaScript"}>
           <Js style={styles.skillTile}></Js>

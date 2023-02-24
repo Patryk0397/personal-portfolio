@@ -18,6 +18,30 @@ export default function DesktopCareerComponent() {
       padding: "20px",
       justifyContent: "space-between",
     },
+    componentContainer: {
+      width: "100%",
+      padding: "20px",
+      display: "flex",
+      flexDirection: "row",
+    },
+    dpdLogo: {
+      height: "45px",
+      width: "10em",
+      marginRight: "10%",
+      marginLeft: "5%",
+    },
+    tm8Logo: {
+      height: "45px",
+      width: "10em",
+      marginRight: "10%",
+      marginLeft: "5%",
+    },
+    locationIcon: { height: "75px", width: "75px", padding: "5px" },
+    dateIcon: {
+      height: "75px",
+      width: "75px",
+      padding: "5px",
+    },
     jobTile: {
       width: "100%",
       margin: "15px",
@@ -35,7 +59,16 @@ export default function DesktopCareerComponent() {
       marginLeft: "50px",
       textAlign: "center",
       display: "flex",
-      justifyContent: "space-around"
+      justifyContent: "space-around",
+    },
+    roleHolder: {
+      textAlign: "left",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      paddingLeft: "60px",
+      backgroundImage: "url('../media/milan.jpeg')",
+      width: "65%",
     },
     cvContainer: {
       display: "flex",
@@ -45,20 +78,16 @@ export default function DesktopCareerComponent() {
       width: "25%",
     },
     employerIcon: { height: "7em", padding: "15px" },
+    iconText: { paddingLeft: "5%" },
+    dateLocationContainer: {
+      justifyContent: "start",
+      display: "flex",
+    },
   };
 
   return (
     <div style={styles.main}>
-      <Paper
-        variant="elevation"
-        elevation={6}
-        sx={{
-          width: "100%",
-          padding: "20px",
-          display: "flex",
-          flexDirection: "row",
-        }}
-      >
+      <Paper variant="elevation" elevation={6} sx={styles.componentContainer}>
         <div style={styles.employerContainer}>
           {jobs.map((job, index) => {
             return (
@@ -73,23 +102,9 @@ export default function DesktopCareerComponent() {
                 onClick={() => setSelectedJob(job)}
               >
                 {job.companyLogo === "DPD" ? (
-                  <Dpd
-                    style={{
-                      height: "45px",
-                      width: "10em",
-                      marginRight: "10%",
-                      marginLeft: "5%",
-                    }}
-                  ></Dpd>
+                  <Dpd style={styles.dpdLogo}></Dpd>
                 ) : (
-                  <Tm8
-                    style={{
-                      height: "45px",
-                      width: "10em",
-                      marginRight: "10%",
-                      marginLeft: "5%",
-                    }}
-                  ></Tm8>
+                  <Tm8 style={styles.tm8Logo}></Tm8>
                 )}
 
                 <div style={{ textAlign: "center", width: "100%" }}>
@@ -108,17 +123,7 @@ export default function DesktopCareerComponent() {
           elevation={2}
           sx={styles.jobDescriptionContainer}
         >
-          <div
-            style={{
-              textAlign: "left",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              paddingLeft: "60px",
-              backgroundImage: "url('../media/milan.jpeg')",
-              width: "65%",
-            }}
-          >
+          <div style={styles.roleHolder}>
             <h2>Responsibilities:</h2>
             <ul>
               {selectedJob?.tasks.map((task, index) => {
@@ -137,31 +142,13 @@ export default function DesktopCareerComponent() {
               justifyContent: "center",
             }}
           >
-            <div
-              style={{
-                justifyContent: "start",
-                display: "flex",
-              }}
-            >
-              <Date
-                style={{
-                  height: "75px",
-                  width: "75px",
-                  padding: "5px",
-                }}
-              ></Date>
-              <h3 style={{ paddingLeft: "5%" }}>{selectedJob?.dates}</h3>
+            <div style={styles.dateLocationContainer}>
+              <Date style={styles.dateIcon}></Date>
+              <h3 style={styles.iconText}>{selectedJob?.dates}</h3>
             </div>
-            <div
-              style={{
-                justifyContent: "start",
-                display: "flex",
-              }}
-            >
-              <Location
-                style={{ height: "75px", width: "75px", padding: "5px" }}
-              ></Location>
-              <h3 style={{ paddingLeft: "5%" }}>{selectedJob?.location}</h3>
+            <div style={styles.dateLocationContainer}>
+              <Location style={styles.locationIcon}></Location>
+              <h3 style={styles.iconText}>{selectedJob?.location}</h3>
             </div>
           </div>
         </Paper>

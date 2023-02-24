@@ -27,6 +27,11 @@ export default function LandingPage() {
       flexDirection: isMobile ? "column" : "row",
       justifyContent: !isMobile && "space-between",
     },
+    image: {
+      width: "50%",
+      height: isMobile ? "25%" : "50%",
+      maskImage: "linear-gradient(to left, transparent 15%, black 100%);",
+    },
     socialButton: {
       background: "white",
       ":hover": { background: "white" },
@@ -67,12 +72,8 @@ export default function LandingPage() {
     <div style={styles.main}>
       <Box
         component="img"
-        sx={{
-          width: "50%",
-          height: isMobile ? "25%" : "50%",
-          maskImage: "linear-gradient(to left, transparent 15%, black 100%);",
-        }}
-        alt="The house from the offer."
+        sx={styles.image}
+        alt="Image"
         src={require("../media/milan.jpeg")}
       />
       <Box

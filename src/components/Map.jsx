@@ -9,6 +9,12 @@ export default function MapComponent() {
       right: "0",
       padding: "20px",
     },
+    mapContainer: {
+      width: "100%",
+      padding: "20px",
+      display: "flex",
+      justifyContent: "space-around",
+    },
     jobDescriptionContainer: {
       width: "100%",
       marginLeft: "50px",
@@ -22,6 +28,24 @@ export default function MapComponent() {
         height: "75px !important",
         width: "75px !important",
       },
+    },
+    statsContainer: {
+      width: "100%",
+      padding: "20px",
+      display: "flex",
+      justifyContent: "space-around",
+    },
+    statsHolder: {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      paddingLeft: "20px",
+      paddingRight: "20px",
+      borderRadius: "5px",
+    },
+    stats: {
+      fontWeight: "500",
+      margin: "5px",
     },
   };
 
@@ -50,23 +74,33 @@ export default function MapComponent() {
         variant="elevation"
         elevation={6}
         sx={{
-          width: "100%",
-          padding: "20px",
-          display: "flex",
-          justifyContent: "center",
+          ...styles.mapContainer,
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
+        <Paper
+          variant="elevation"
+          elevation={6}
+          sx={{
+            ...styles.statsContainer
           }}
         >
-          <h2>{`Countries Visited: ${data.length}`}</h2>
-          <h2>Cities Visited: 30</h2>
-          <h2> Flights Taken: Too many to count</h2>
-        </div>
+          <div
+            style={{
+              ...styles.statsHolder,
+            }}
+          >
+            <h2>Travel Stats To Date:</h2>
+            <h3
+              style={{ ...styles.stats }}
+            >{`Countries Visited: ${data.length}`}</h3>
+            <h3 style={{ ...styles.stats }}>Cities Visited: 30</h3>
+            <h3 style={{ ...styles.stats }}>
+              {" "}
+              Flights Taken: Too many to count
+            </h3>
+          </div>
+        </Paper>
+
         <ReactWorldCountriesMap
           color="red"
           title=""

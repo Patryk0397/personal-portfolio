@@ -41,6 +41,11 @@ export default function MobileCareerComponent() {
       width: "20%",
     },
     employerIcon: { height: "7em", padding: "15px" },
+    dpdLogo: { opacity: "50%", width: "50%" },
+    tm8Logo: { opacity: "50%", width: "50%", paddingTop: "50px" },
+    locationIcon: { height: "50px", width: "50px", padding: "5px" },
+    flexJustifyCentre: { display: "flex", justifyContent: "center" },
+    listItemText: { fontSize: "14px" },
   };
 
   return (
@@ -72,14 +77,14 @@ export default function MobileCareerComponent() {
                   width: "100%"
                 }}
               >
-                <div style={{ display: "flex", justifyContent: "center" }}>
+                <div style={styles.flexJustifyCentre}>
                   {job.companyLogo === "DPD" ? (
-                    <Dpd style={{ opacity: "50%", width: "50%" }}></Dpd>
+                    <Dpd style={styles.dpdLogo}></Dpd>
                   ) : (
-                    <Tm8 style={{ opacity: "50%", width: "50%", paddingTop: "50px" }}></Tm8>
+                    <Tm8 style={styles.tm8Logo}></Tm8>
                   )}
                 </div>
-                <h2 style={{ display: "flex", justifyContent: "center" }}>{job.title}</h2>
+                <h2 style={styles.flexJustifyCentre}>{job.title}</h2>
               </div>
               <div
                 style={{
@@ -92,7 +97,7 @@ export default function MobileCareerComponent() {
                 <ul>
                   {job?.tasks.map((task, index) => {
                     return (
-                      <li style={{ fontSize: "14px" }} key={index}>
+                      <li style={styles.listItemText} key={index}>
                         {task}
                       </li>
                     );
@@ -131,7 +136,7 @@ export default function MobileCareerComponent() {
                   }}
                 >
                   <Location
-                    style={{ height: "50px", width: "50px", padding: "5px" }}
+                    style={styles.locationIcon}
                   ></Location>
                   <h5>{job?.location}</h5>
                 </div>
