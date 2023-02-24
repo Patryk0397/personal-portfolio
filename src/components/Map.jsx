@@ -15,22 +15,7 @@ export default function MapComponent() {
       display: "flex",
       justifyContent: "space-around",
     },
-    jobDescriptionContainer: {
-      width: "100%",
-      marginLeft: "50px",
-      padding: "10px",
-      textAlign: "center",
-    },
-    skillTile: {
-      height: "70px",
-      width: "70px",
-      ":hover": {
-        height: "75px !important",
-        width: "75px !important",
-      },
-    },
     statsContainer: {
-      width: "100%",
       padding: "20px",
       display: "flex",
       justifyContent: "space-around",

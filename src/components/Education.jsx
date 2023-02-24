@@ -49,7 +49,7 @@ const EducationComponent = () => {
               <h2>{school.name}</h2>
               <h3>{school.courseType}</h3>
                 {school.courseNames.map((courseName, index) => {
-                  return <h4 style={styles.courseNames}key={index}>{courseName}</h4>
+                  return <h4 style={styles.courseNames} key={index}>{courseName}</h4>
                 })}
               <h4>{school.dates}</h4>
             </Paper>
