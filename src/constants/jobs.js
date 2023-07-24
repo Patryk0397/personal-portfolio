@@ -1,5 +1,19 @@
 export const jobs = [
   {
+    title: "Software Engineer",
+    companyLogo: "Entwined",
+    dates: "03/2023 - Present",
+    tasks: [
+      "Developing APIs in a Microservice Architecture",
+      "Utilising MongoDB for Data Storage",
+      "Developing a front-end VueJS Application for a CMS and Device Monitoring Platform",
+      "Deployment and Management of API's and Web Applications",
+      "Architecting and designing software for performance and low-cost",
+      "Using Google Cloud Platform for deployments, monitoring and management of services"
+    ],
+    location: "Brisbane, Australia"
+  },
+  {
     title: "Software Developer",
     companyLogo: "DPD",
     dates: "03/2021 - 02/2023",

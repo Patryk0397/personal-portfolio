@@ -11,8 +11,15 @@ import { ReactComponent as Db } from "../media/db.svg";
 import { ReactComponent as Gcp } from "../media/gcp.svg";
 import { ReactComponent as Sentry } from "../media/sentry.svg";
 import { ReactComponent as Git } from "../media/git.svg";
+import GenericModal from "./GenericModal";
 
 export default function SkillsComponent() {
+  const skills = {
+    js: {
+      title: "JavaScript",
+      content: [],
+    },
+  };
   const styles = {
     main: {
       display: "flex",
@@ -20,37 +27,48 @@ export default function SkillsComponent() {
       right: "0",
       padding: "20px",
     },
-    skillContainer: {
-      width: "100%",
-      padding: "20px",
-      display: "flex",
-      flexWrap: "wrap",
-      justifyContent: "space-between"
-    },
-    jobDescriptionContainer: {
-      width: "100%",
-      marginLeft: "50px",
-      padding: "10px",
-      textAlign: "center",
-    },
     skillTile: {
-      height:  "70px",
+      height: "70px",
       width: "70px",
-      ":hover": {
-        height: "75px !important",
-        width: "75px !important",
-    }},
+      cursor: "pointer",
+    },
+  };
+
+  const [open, setOpen] = React.useState(false);
+  const [modalTitle, setModalTitle] = React.useState("");
+  const [modalContent, setModalContent] = React.useState("");
+
+  const handleOpen = (choice) => {
+    setModalTitle(skills[choice].title);
+    setModalContent(skills[choice].content);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
     <div style={styles.main}>
+      <GenericModal
+        title="test"
+        content="test2"
+        open={open}
+        handleClose={handleClose}
+      ></GenericModal>
       <Paper
         variant="elevation"
         elevation={6}
-        sx={styles.skillsContainer}
+        sx={{
+          width: "100%",
+          padding: "20px",
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-between",
+        }}
       >
         <Tooltip sx={styles.tooltip} title={"JavaScript"}>
-          <Js style={styles.skillTile}></Js>
+          <Js style={styles.skillTile} onClick={() => handleOpen("js")}></Js>
         </Tooltip>
 
         <Tooltip title={"TypeScript"}>

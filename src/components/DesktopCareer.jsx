@@ -2,6 +2,7 @@ import * as React from "react";
 import { Paper } from "@mui/material";
 import { jobs } from "../constants/jobs";
 
+import { ReactComponent as Entwined } from "../media/entwined.svg";
 import { ReactComponent as Dpd } from "../media/dpd.svg";
 import { ReactComponent as Tm8 } from "../media/tm8.svg";
 import { ReactComponent as Date } from "../media/date.svg";
@@ -85,6 +86,22 @@ export default function DesktopCareerComponent() {
     },
   };
 
+  const pickLogo = (company) => {
+    if (company === "DPD") {
+      return (
+        <Dpd style={styles.dpdLogo}></Dpd>
+      )
+    } else if (company === "TM8") {
+      return (
+        <Tm8 style={styles.dpdLogo}></Tm8>
+      )
+    } else {
+      return (
+        <Entwined style={styles.dpdLogo}></Entwined>
+      )
+    }
+  }
+
   return (
     <div style={styles.main}>
       <Paper variant="elevation" elevation={6} sx={styles.componentContainer}>
@@ -101,12 +118,7 @@ export default function DesktopCareerComponent() {
                 }}
                 onClick={() => setSelectedJob(job)}
               >
-                {job.companyLogo === "DPD" ? (
-                  <Dpd style={styles.dpdLogo}></Dpd>
-                ) : (
-                  <Tm8 style={styles.tm8Logo}></Tm8>
-                )}
-
+                {pickLogo(job.companyLogo)}
                 <div style={{ textAlign: "center", width: "100%" }}>
                   <p style={{ fontSize: "20px", fontWeight: 800 }}>
                     {job.title}

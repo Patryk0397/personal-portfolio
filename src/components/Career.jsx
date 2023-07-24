@@ -2,6 +2,7 @@ import * as React from "react";
 import { Paper } from "@mui/material";
 import { jobs } from "../constants/jobs";
 
+import { ReactComponent as Entwined } from "../media/entwined.svg";
 import { ReactComponent as Dpd } from "../media/dpd.svg";
 import { ReactComponent as Tm8 } from "../media/tm8.svg";
 import { ReactComponent as Date } from "../media/date.svg";
@@ -30,6 +31,12 @@ export default function CareerComponent() {
       display: "flex",
       alignItems: "center",
     },
+    logo: {
+      height: "45px",
+      width: "10em",
+      marginRight: "10%",
+      marginLeft: "5%",
+    },
     jobDescriptionContainer: {
       width: "100%",
       marginLeft: "50px",
@@ -46,6 +53,18 @@ export default function CareerComponent() {
     },
     employerIcon: { height: "7em", padding: "15px" },
   };
+
+  const pickLogo = (company) => {
+    if (company === "DPD") {
+      return (
+        <Dpd style={styles.logo}></Dpd>
+      )
+    }  else if (company === "Entwined") {
+      return (
+        <Entwined style={styles.logo}></Entwined>
+      )
+    }
+  }
 
   return (
     <div style={styles.main}>
@@ -72,26 +91,7 @@ export default function CareerComponent() {
                 }}
                 onClick={() => setSelectedJob(job)}
               >
-                {job.companyLogo === "DPD" ? (
-                  <Dpd
-                    style={{
-                      height: "45px",
-                      width: "10em",
-                      marginRight: "10%",
-                      marginLeft: "5%",
-                    }}
-                  ></Dpd>
-                ) : (
-                  <Tm8
-                    style={{
-                      height: "45px",
-                      width: "10em",
-                      marginRight: "10%",
-                      marginLeft: "5%",
-                    }}
-                  ></Tm8>
-                )}
-
+                {pickLogo(job.companyLogo)}
                 <div style={{ textAlign: "center", width: "100%" }}>
                   <p style={{ fontSize: "20px", fontWeight: 800 }}>
                     {job.title}

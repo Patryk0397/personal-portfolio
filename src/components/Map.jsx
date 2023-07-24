@@ -51,6 +51,11 @@ export default function MapComponent() {
     { country: "hu", value: "2019" }, // hungary 1
     { country: "ee", value: "2017" }, // estonia 1
     { country: "fi", value: "2017" }, // finland 1
+    { country: "jp", value: "2023" }, // japan 1
+    { country: "vn", value: "2023" }, // vietnam 1
+    { country: "sg", value: "2023" },
+    { country: "my", value: "2023" },
+    { country: "gb", value: "2006" }
   ];
 
   return (

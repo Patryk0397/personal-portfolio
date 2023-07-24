@@ -2,6 +2,7 @@ import React from "react";
 import { Paper } from "@mui/material";
 import { jobs } from "../constants/jobs";
 
+import { ReactComponent as Entwined } from "../media/entwined.svg";
 import { ReactComponent as Dpd } from "../media/dpd.svg";
 import { ReactComponent as Tm8 } from "../media/tm8.svg";
 import { ReactComponent as Date } from "../media/date.svg";
@@ -48,6 +49,22 @@ export default function MobileCareerComponent() {
     listItemText: { fontSize: "14px" },
   };
 
+  const pickLogo = (company) => {
+    if (company === "DPD") {
+      return (
+        <Dpd style={styles.dpdLogo}></Dpd>
+      )
+    } else if (company === "TM8") {
+      return (
+        <Tm8 style={styles.tm8Logo}></Tm8>
+      )
+    } else {
+      return (
+        <Tm8 style={styles.tm8Logo}></Tm8>
+      )
+    }
+  }
+
   return (
     <div style={styles.main}>
       {jobs.map((job) => {
@@ -78,11 +95,7 @@ export default function MobileCareerComponent() {
                 }}
               >
                 <div style={styles.flexJustifyCentre}>
-                  {job.companyLogo === "DPD" ? (
-                    <Dpd style={styles.dpdLogo}></Dpd>
-                  ) : (
-                    <Tm8 style={styles.tm8Logo}></Tm8>
-                  )}
+                  {pickLogo(job.companyLogo)}
                 </div>
                 <h2 style={styles.flexJustifyCentre}>{job.title}</h2>
               </div>
