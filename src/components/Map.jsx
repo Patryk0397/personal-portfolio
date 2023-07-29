@@ -55,7 +55,7 @@ export default function MapComponent() {
     { country: "vn", value: "2023" }, // vietnam 1
     { country: "sg", value: "2023" },
     { country: "my", value: "2023" },
-    { country: "gb", value: "2006" }
+    { country: "gb", value: "20023" }
   ];
 
   return (
