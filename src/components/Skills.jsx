@@ -23,8 +23,6 @@ export default function SkillsComponent() {
   const styles = {
     main: {
       display: "flex",
-      left: "0",
-      right: "0",
       padding: "20px",
     },
     skillTile: {
@@ -61,10 +59,11 @@ export default function SkillsComponent() {
         elevation={6}
         sx={{
           width: "100%",
-          padding: "20px",
+          padding: "10px",
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "space-between",
+          justifyContent: "center",
+          gap: "0.5rem"
         }}
       >
         <Tooltip sx={styles.tooltip} title={"JavaScript"}>

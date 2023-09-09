@@ -58,8 +58,13 @@ export default function MapComponent() {
     { country: "gb", value: "20023" }
   ];
 
+  const mapClick = ev => {
+    return
+  }
+
   return (
-    <div style={styles.main}>
+    <div style={styles.main}
+    onClick={(ev) => mapClick(ev)}>
       <Paper
         variant="elevation"
         elevation={6}

@@ -26,6 +26,7 @@ export default function LandingPage() {
       display: "flex",
       flexDirection: isMobile ? "column" : "row",
       justifyContent: !isMobile && "space-between",
+      marginRight: "20px"
     },
     image: {
       width: "50%",
@@ -37,11 +38,10 @@ export default function LandingPage() {
       ":hover": { background: "white" },
       margin: "20px",
       marginLeft: 0,
-      minWidth: !isMobile && "150px",
+      flex: 1,
     },
     socialMediaIconContainer: {
       display: "flex",
-      width: "100%",
       justifyContent: isMobile && "space-between",
       paddingTop: isMobile ? "30px" : "20px"
     },
@@ -62,10 +62,13 @@ export default function LandingPage() {
       paddingTop: "5px"
     },
     shortProfileContainer: {
-      maxWidth: isMobile ? "100%" : "50%",
+      maxWidth: isMobile ? "100%" : "900px",
       paddingLeft: isMobile ? "20px" : "20px",
       paddingRight: isMobile ? "20px" : "20px",
-      paddingTop: !isMobile && "200px"
+      paddingTop: !isMobile && "200px",
+      display: "flex !important",
+      flexDirection: "column",
+      justifyContent: "center"
     }
   };
   return (
@@ -77,8 +80,7 @@ export default function LandingPage() {
         src={require("../media/milan.jpeg")}
       />
       <Box
-        sx={styles.shortProfileContainer}
-      >
+        sx={styles.shortProfileContainer}      >
         <Typography sx={styles.name}>Patryk</Typography>
         <Typography sx={styles.lastName}>Orsztynowicz</Typography>
         <Typography

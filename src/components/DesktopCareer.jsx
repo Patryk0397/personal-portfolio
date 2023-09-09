@@ -13,17 +13,15 @@ export default function DesktopCareerComponent() {
 
   const styles = {
     main: {
-      display: "flex",
-      left: "0",
-      right: "0",
       padding: "20px",
-      justifyContent: "space-between",
     },
     componentContainer: {
       width: "100%",
-      padding: "20px",
+      padding: "10px",
       display: "flex",
-      flexDirection: "row",
+      flexWrap: "wrap",
+      justifyContent: "space-between",
+      gap: "1rem"
     },
     dpdLogo: {
       height: "45px",
@@ -44,8 +42,6 @@ export default function DesktopCareerComponent() {
       padding: "5px",
     },
     jobTile: {
-      width: "100%",
-      margin: "15px",
       padding: "10px",
       textAlign: "center",
       ":hover": {
@@ -56,40 +52,41 @@ export default function DesktopCareerComponent() {
       alignItems: "center",
     },
     jobDescriptionContainer: {
-      width: "100%",
-      marginLeft: "50px",
-      textAlign: "center",
       display: "flex",
-      justifyContent: "space-around",
+      padding: "2%",
+      flex: 1,
     },
-    roleHolder: {
-      textAlign: "left",
+    employerContainer: {
       display: "flex",
       flexDirection: "column",
-      justifyContent: "center",
-      paddingLeft: "60px",
-      backgroundImage: "url('../media/milan.jpeg')",
-      width: "65%",
+      justifyContent: "space-around",
+      flex: "0 1 25%",
+      minWidth: "25%",
+      gap: "0.5rem"
+    },
+    roleHolder: {
+
     },
     cvContainer: {
       display: "flex",
       justifyContent: "center",
     },
-    employerContainer: {
-      width: "25%",
-    },
     employerIcon: { height: "7em", padding: "15px" },
-    iconText: { paddingLeft: "5%" },
+    iconText: {
+      paddingLeft: "5%",
+    },
     dateLocationContainer: {
       justifyContent: "start",
       display: "flex",
+      marginBottom: "10px",
+      alignItems: "center"
     },
   };
 
   const pickLogo = (company) => {
     if (company === "DPD") {
       return (
-        <Dpd style={styles.dpdLogo}></Dpd>
+        <Tm8 style={styles.dpdLogo}></Tm8>
       )
     } else if (company === "TM8") {
       return (
@@ -97,7 +94,7 @@ export default function DesktopCareerComponent() {
       )
     } else {
       return (
-        <Entwined style={styles.dpdLogo}></Entwined>
+        <Tm8 style={styles.dpdLogo}></Tm8>
       )
     }
   }
@@ -120,10 +117,9 @@ export default function DesktopCareerComponent() {
               >
                 {pickLogo(job.companyLogo)}
                 <div style={{ textAlign: "center", width: "100%" }}>
-                  <p style={{ fontSize: "20px", fontWeight: 800 }}>
+                  <p style={{ fontSize: "18px", fontWeight: 800 }}>
                     {job.title}
                   </p>
-                  <h4>{job.dates}</h4>
                 </div>
               </Paper>
             );
@@ -136,18 +132,19 @@ export default function DesktopCareerComponent() {
           sx={styles.jobDescriptionContainer}
         >
           <div style={styles.roleHolder}>
-            <h2>Responsibilities:</h2>
+            <h3>Responsibilities:</h3>
             <ul>
-              {selectedJob?.tasks.map((task, index) => {
-                return (
-                  <li style={{ fontSize: "20px" }} key={index}>
-                    {task}
-                  </li>
-                );
-              })}
+            {selectedJob.tasks.map((task, index) => {
+              const [title, description] = task.split(": ");
+              return (
+                <li key={index}>
+                  <strong>{title}:</strong> {description}
+                </li>
+              );
+            })}
             </ul>
           </div>
-          <div
+          {/* <div
             style={{
               display: "flex",
               flexDirection: "column",
@@ -162,7 +159,7 @@ export default function DesktopCareerComponent() {
               <Location style={styles.locationIcon}></Location>
               <h3 style={styles.iconText}>{selectedJob?.location}</h3>
             </div>
-          </div>
+          </div> */}
         </Paper>
       </Paper>
     </div>
