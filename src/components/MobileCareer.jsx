@@ -106,16 +106,16 @@ export default function MobileCareerComponent() {
                   padding: "5%"
                 }}
               >
-                <h3>Responsibilities:</h3>
-                <ul>
-                  {job?.tasks.map((task, index) => {
-                    return (
-                      <li style={styles.listItemText} key={index}>
-                        {task}
-                      </li>
-                    );
-                  })}
-                </ul>
+                <ul style={{ paddingLeft: "10px", paddingRight: 0 }}>
+                {job.tasks.map((task, index) => {
+                  const [title, description] = task.split(": ");
+                  return (
+                    <li key={index}>
+                      <strong>{title}:</strong> {description}
+                    </li>
+                  );
+            })}
+            </ul>
               </div>
               <div
                 style={{

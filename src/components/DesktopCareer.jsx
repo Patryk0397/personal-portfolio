@@ -144,22 +144,6 @@ export default function DesktopCareerComponent() {
             })}
             </ul>
           </div>
-          {/* <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
-          >
-            <div style={styles.dateLocationContainer}>
-              <Date style={styles.dateIcon}></Date>
-              <h3 style={styles.iconText}>{selectedJob?.dates}</h3>
-            </div>
-            <div style={styles.dateLocationContainer}>
-              <Location style={styles.locationIcon}></Location>
-              <h3 style={styles.iconText}>{selectedJob?.location}</h3>
-            </div>
-          </div> */}
         </Paper>
       </Paper>
     </div>

@@ -26,12 +26,20 @@ export default function LandingPage() {
       display: "flex",
       flexDirection: isMobile ? "column" : "row",
       justifyContent: !isMobile && "space-between",
-      marginRight: "20px"
+      gap: "5%"
     },
     image: {
       width: "50%",
       height: isMobile ? "25%" : "50%",
       maskImage: "linear-gradient(to left, transparent 15%, black 100%);",
+    },
+    shortProfile: {
+      paddingTop: "20px",
+      fontWeight: "300",
+      textAlign: isMobile && "center",
+      paddingRight: "20px",
+      maxWidth: isMobile ? "100%" : "75%",
+      paddingLeft: isMobile && "20px"
     },
     socialButton: {
       background: "white",
@@ -43,7 +51,9 @@ export default function LandingPage() {
     socialMediaIconContainer: {
       display: "flex",
       justifyContent: isMobile && "space-between",
-      paddingTop: isMobile ? "30px" : "20px"
+      paddingTop: isMobile ? "0px" : "20px",
+      maxWidth: isMobile ? "100%" : "75%",
+      paddingLeft: isMobile && "20px"
     },
     socialMediaIcon: {
       height: isMobile ? "40px" : "30px",
@@ -62,9 +72,6 @@ export default function LandingPage() {
       paddingTop: "5px"
     },
     shortProfileContainer: {
-      maxWidth: isMobile ? "100%" : "900px",
-      paddingLeft: isMobile ? "20px" : "20px",
-      paddingRight: isMobile ? "20px" : "20px",
       paddingTop: !isMobile && "200px",
       display: "flex !important",
       flexDirection: "column",
@@ -90,7 +97,7 @@ export default function LandingPage() {
           Software Engineer with a knack for teamwork and communication.
         </Typography>
         <Typography
-          sx={{ paddingTop: "20px", fontWeight: "300", textAlign: isMobile && "center" }}
+          sx={styles.shortProfile}
           variant="body1"
         >
           Experienced yet hungry for knowledge developer, skilled in Full Stack

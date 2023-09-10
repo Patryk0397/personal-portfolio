@@ -12,8 +12,38 @@ import { ReactComponent as Gcp } from "../media/gcp.svg";
 import { ReactComponent as Sentry } from "../media/sentry.svg";
 import { ReactComponent as Git } from "../media/git.svg";
 import GenericModal from "./GenericModal";
+import { useState, useEffect } from "react";
 
 export default function SkillsComponent() {
+  const [width, setWidth] = useState(window.innerWidth);
+
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
+  }
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
+
+  const isMobile = width <= 1200;
+
+  const [open, setOpen] = React.useState(false);
+  const [modalTitle, setModalTitle] = React.useState("");
+  const [modalContent, setModalContent] = React.useState("");
+
+
+  const handleOpen = (choice) => {
+    setModalTitle(skills[choice].title);
+    setModalContent(skills[choice].content);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const skills = {
     js: {
       title: "JavaScript",
@@ -26,24 +56,10 @@ export default function SkillsComponent() {
       padding: "20px",
     },
     skillTile: {
-      height: "70px",
-      width: "70px",
+      height: isMobile ? "45px" : "70px",
+      width: isMobile ? "45px" : "70px",
       cursor: "pointer",
     },
-  };
-
-  const [open, setOpen] = React.useState(false);
-  const [modalTitle, setModalTitle] = React.useState("");
-  const [modalContent, setModalContent] = React.useState("");
-
-  const handleOpen = (choice) => {
-    setModalTitle(skills[choice].title);
-    setModalContent(skills[choice].content);
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
   };
 
   return (
@@ -62,7 +78,7 @@ export default function SkillsComponent() {
           padding: "10px",
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "center",
+          justifyContent: "space-between",
           gap: "0.5rem"
         }}
       >
