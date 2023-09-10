@@ -12,7 +12,8 @@ export const jobs = [
       "Google Cloud Platform Expertise: Proficiently using Google Cloud Platform for deployment, monitoring, and centralized management of services",
       "Collaborative UX Design: Collaborating closely with the creative team to shape outstanding user experiences and designs, resulting in state-of-the-art applications"
     ],
-    location: "Brisbane, Australia"
+    location: "Brisbane, Australia",
+    skills: [ 'ts', 'node', 'nest', 'vue', 'gcp', 'mongo', 'css', 'html', 'sql', 'git' ]
   },
   {
     title: "Software Developer",
@@ -28,7 +29,8 @@ export const jobs = [
       "Architecting Innovative Solutions: Playing a pivotal role in architecting a variety of innovative projects",
       "Mentoring and Team Support: Providing guidance and support to fellow team members through mentorship and teamwork"
     ],
-    location: "Birmingham, UK"
+    location: "Birmingham, UK",
+    skills: [ 'js', 'node', 'react', 'gcp', 'html', 'css', 'sql', 'git', 'sentry' ]
   },
   {
     title: "Software Engineer",
@@ -40,7 +42,8 @@ export const jobs = [
       "Database Expansion with MySQL and Sequelize: Leveraging MySQL and Sequelize to expand databases, establish models, and define relationships",
       "Nurturing New Talent: Playing a pivotal role in mentoring and knowledge sharing with newcomers to facilitate their smooth integration into the codebase and workflow."
     ],
-    location: "Birmingham, UK"
+    location: "Birmingham, UK",
+    skills: [ 'ts', 'js', 'node', 'angular', 'css', 'html', 'sql', 'git' ]
   },
   {
     title: "Junior Software Engineer",
@@ -54,6 +57,7 @@ export const jobs = [
       "Rigorous Unit Testing with JEST: Conducting thorough unit testing using JEST to ensure code reliability and functionality",
       "Elevating Programming Standards and Practices: Committed to enhancing programming standards and adhering to best practices for software development"
     ],
-    location: "Birmingham, UK"
+    location: "Birmingham, UK",
+    skills: [ 'ts', 'angular', 'html', 'css', 'sql', 'git'  ]
   },
 ];

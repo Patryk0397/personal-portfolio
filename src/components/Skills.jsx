@@ -11,7 +11,9 @@ import { ReactComponent as Db } from "../media/db.svg";
 import { ReactComponent as Gcp } from "../media/gcp.svg";
 import { ReactComponent as Sentry } from "../media/sentry.svg";
 import { ReactComponent as Git } from "../media/git.svg";
-import GenericModal from "./GenericModal";
+import { ReactComponent as Vue } from "../media/vue.svg";
+import { ReactComponent as Nest } from "../media/nestjs.svg";
+import { ReactComponent as Mongo } from "../media/mongo.svg";
 import { useState, useEffect } from "react";
 
 export default function SkillsComponent() {
@@ -29,31 +31,21 @@ export default function SkillsComponent() {
 
   const isMobile = width <= 1200;
 
-  const [open, setOpen] = React.useState(false);
-  const [modalTitle, setModalTitle] = React.useState("");
-  const [modalContent, setModalContent] = React.useState("");
-
-
-  const handleOpen = (choice) => {
-    setModalTitle(skills[choice].title);
-    setModalContent(skills[choice].content);
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const skills = {
-    js: {
-      title: "JavaScript",
-      content: [],
-    },
-  };
   const styles = {
     main: {
       display: "flex",
       padding: "20px",
+    },
+    gridContainer: {
+      width: "100%",
+      padding: "10px",
+      display: "grid",
+      gridTemplateColumns: isMobile ?  "1fr 1fr 1fr 1fr 1fr" : "1fr 1fr 1fr 1fr 1fr 1fr 1fr",
+      gap: "5px",
+    },
+    gridItem: {
+      display: "flex",
+      justifyContent: "center",
     },
     skillTile: {
       height: isMobile ? "45px" : "70px",
@@ -67,62 +59,94 @@ export default function SkillsComponent() {
 
   return (
     <div style={styles.main}>
-      <GenericModal
-        title="test"
-        content="test2"
-        open={open}
-        handleClose={handleClose}
-      ></GenericModal>
       <Paper
         variant="elevation"
         elevation={6}
-        sx={{
-          width: "100%",
-          padding: "10px",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
-          gap: "5px",
-        }}
+        sx={styles.gridContainer}
       >
-        <Tooltip sx={styles.tooltip} title={"JavaScript"}>
-          <Js style={styles.skillTile} onClick={() => handleOpen("js")}></Js>
-        </Tooltip>
+        <div style={styles.gridItem}>
+          <Tooltip sx={styles.tooltip} title={"JavaScript"}>
+            <Js style={styles.skillTile}></Js>
+          </Tooltip>
+        </div>
 
-        <Tooltip title={"TypeScript"}>
-          <Ts style={styles.skillTile}></Ts>
-        </Tooltip>
+        <div style={styles.gridItem}>
+          <Tooltip title={"TypeScript"}>
+            <Ts style={styles.skillTile}></Ts>
+          </Tooltip>
+        </div>
 
-        <Tooltip title={"NodeJs"}>
-          <Node style={styles.skillTile}></Node>
-        </Tooltip>
+        <div style={styles.gridItem}>
+          <Tooltip title={"NestJS"}>
+            <Nest style={styles.skillTile}></Nest>
+          </Tooltip>
+        </div>
 
-        <Tooltip title={"ReactJS"}>
-          <ReactJs style={styles.skillTile}></ReactJs>
-        </Tooltip>
+        <div style={styles.gridItem}>
+          <Tooltip title={"NodeJs"}>
+            <Node style={styles.skillTile}></Node>
+          </Tooltip>
+        </div>
 
-        <Tooltip title={"Angular (2+)"}>
-          <Angular style={styles.skillTile}></Angular>
-        </Tooltip>
+        <div style={styles.gridItem}>
+          <Tooltip title={"VueJS"}>
+            <Vue style={styles.skillTile}></Vue>
+          </Tooltip>
+        </div>
 
-        <Tooltip title={"CSS"}>
-          <Css style={styles.skillTile}></Css>
-        </Tooltip>
-        <Tooltip title={"HTML"}>
-          <Html style={styles.skillTile}></Html>
-        </Tooltip>
-        <Tooltip title={"SQL"}>
-          <Db style={styles.skillTile}></Db>
-        </Tooltip>
-        <Tooltip title={"Google Cloud Platform"}>
-          <Gcp style={styles.skillTile}></Gcp>
-        </Tooltip>
+        <div style={styles.gridItem}>
+          <Tooltip title={"ReactJS"}>
+            <ReactJs style={styles.skillTile}></ReactJs>
+          </Tooltip>
+        </div>
 
-        <Tooltip title={"Sentry"}>
-          <Sentry style={styles.skillTile}></Sentry>
-        </Tooltip>
-        <Tooltip title={"Git"}>
-          <Git style={{...styles.skillTile, ...styles.lastChild}}></Git>
-        </Tooltip>
+        <div style={styles.gridItem}>
+          <Tooltip title={"Angular (2+)"}>
+            <Angular style={styles.skillTile}></Angular>
+          </Tooltip>
+        </div>
+
+        <div style={styles.gridItem}>
+          <Tooltip title={"CSS"}>
+            <Css style={styles.skillTile}></Css>
+          </Tooltip>
+        </div>
+
+        <div style={styles.gridItem}>
+          <Tooltip title={"HTML"}>
+            <Html style={styles.skillTile}></Html>
+          </Tooltip>
+        </div>
+
+        <div style={styles.gridItem}>
+          <Tooltip title={"MongoDB"}>
+            <Mongo style={styles.skillTile}></Mongo>
+          </Tooltip>
+        </div>
+
+        <div style={styles.gridItem}>
+          <Tooltip title={"SQL"}>
+            <Db style={styles.skillTile}></Db>
+          </Tooltip>
+        </div>
+
+        <div style={styles.gridItem}>
+          <Tooltip title={"Google Cloud Platform"}>
+            <Gcp style={styles.skillTile}></Gcp>
+          </Tooltip>
+        </div>
+
+        <div style={styles.gridItem}>
+          <Tooltip title={"Sentry"}>
+            <Sentry style={styles.skillTile}></Sentry>
+          </Tooltip>
+        </div>
+
+        <div style={styles.gridItem}>
+          <Tooltip title={"Git"}>
+            <Git style={{...styles.skillTile}}></Git>
+          </Tooltip>
+        </div>
       </Paper>
     </div>
   );

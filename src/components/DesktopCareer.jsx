@@ -1,12 +1,10 @@
 import * as React from "react";
-import { Paper } from "@mui/material";
+import { Paper, Tooltip } from "@mui/material";
 import { jobs } from "../constants/jobs";
-
 import { ReactComponent as Entwined } from "../media/entwined.svg";
 import { ReactComponent as Dpd } from "../media/dpd.svg";
 import { ReactComponent as Tm8 } from "../media/tm8.svg";
-import { ReactComponent as Date } from "../media/date.svg";
-import { ReactComponent as Location } from "../media/location.svg";
+import { generateSkillTiles } from "../util/skill";
 
 export default function DesktopCareerComponent() {
   const [selectedJob, setSelectedJob] = React.useState(jobs[0]);
@@ -55,6 +53,7 @@ export default function DesktopCareerComponent() {
       display: "flex",
       padding: "2%",
       flex: 1,
+      minHeight: "400px"
     },
     employerContainer: {
       display: "flex",
@@ -65,7 +64,9 @@ export default function DesktopCareerComponent() {
       gap: "0.5rem"
     },
     roleHolder: {
-
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between"
     },
     cvContainer: {
       display: "flex",
@@ -81,12 +82,23 @@ export default function DesktopCareerComponent() {
       marginBottom: "10px",
       alignItems: "center"
     },
+    skillsContainer: {
+      display: "flex",
+      flexWrap: "wrap",
+      flexDirection: "row",
+      gap: "10px",
+      justifyContent: "space-around"
+    },
+    skillTile: {
+      height: "15px",
+      width: "15px"
+    }
   };
 
   const pickLogo = (company) => {
     if (company === "DPD") {
       return (
-        <Tm8 style={styles.dpdLogo}></Tm8>
+        <Dpd style={styles.dpdLogo}></Dpd>
       )
     } else if (company === "TM8") {
       return (
@@ -143,6 +155,9 @@ export default function DesktopCareerComponent() {
               );
             })}
             </ul>
+            <div style={styles.skillsContainer}>
+              {generateSkillTiles(selectedJob.skills, false)}
+            </div>
           </div>
         </Paper>
       </Paper>

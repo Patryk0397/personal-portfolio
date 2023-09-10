@@ -5,6 +5,7 @@ import { jobs } from "../constants/jobs";
 import { ReactComponent as Entwined } from "../media/entwined.svg";
 import { ReactComponent as Dpd } from "../media/dpd.svg";
 import { ReactComponent as Tm8 } from "../media/tm8.svg";
+import { generateSkillTiles } from "../util/skill";
 
 export default function MobileCareerComponent() {
   const styles = {
@@ -45,6 +46,12 @@ export default function MobileCareerComponent() {
     tm8Logo: { opacity: "50%", width: "50%", paddingTop: "50px" },
     flexJustifyCentre: { display: "flex", justifyContent: "center", margin: "5px" },
     listItemText: { fontSize: "14px" },
+    skillsContainer: {
+      display: "flex",
+      gap: "5px",
+      justifyContent: "center",
+      flexWrap: "wrap"
+    }
   };
 
   const pickLogo = (company) => {
@@ -115,6 +122,9 @@ export default function MobileCareerComponent() {
                   );
             })}
             </ul>
+            <div style={styles.skillsContainer}>
+              {generateSkillTiles(job.skills, true)}
+            </div>
               </div>
             </Paper>
           </Paper>

@@ -15,7 +15,7 @@ function MapComponent() {
     map.on('load', () => {
       // Add a marker for Birmingham
       new mapboxgl.Marker()
-        .setLngLat([52.486243, -1.893592])
+        .setLngLat([ -1.893592, 52.486243])
         .setPopup(new mapboxgl.Popup().setHTML('Birmingham'))
         .addTo(map);
     });
