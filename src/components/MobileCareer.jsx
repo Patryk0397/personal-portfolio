@@ -15,6 +15,7 @@ export default function MobileCareerComponent() {
       flexDirection: "column",
       padding: "20px",
       justifyContent: "space-between",
+      gap: "5px"
     },
     jobTile: {
       width: "100%",
@@ -44,8 +45,7 @@ export default function MobileCareerComponent() {
     employerIcon: { height: "7em", padding: "15px" },
     dpdLogo: { opacity: "50%", width: "50%" },
     tm8Logo: { opacity: "50%", width: "50%", paddingTop: "50px" },
-    locationIcon: { height: "50px", width: "50px", padding: "5px" },
-    flexJustifyCentre: { display: "flex", justifyContent: "center" },
+    flexJustifyCentre: { display: "flex", justifyContent: "center", margin: "5px" },
     listItemText: { fontSize: "14px" },
   };
 
@@ -75,7 +75,7 @@ export default function MobileCareerComponent() {
             elevation={6}
             sx={{
               width: "100%",
-              padding: "20px",
+              padding: "10px",
               display: "flex",
               flexDirection: "column",
             }}
@@ -91,13 +91,14 @@ export default function MobileCareerComponent() {
                   flexDirection: "column",
                   justifyContent: "center",
                   paddingRight: "20px",
-                  width: "100%"
+                  width: "100%",
                 }}
               >
                 <div style={styles.flexJustifyCentre}>
                   {pickLogo(job.companyLogo)}
                 </div>
                 <h2 style={styles.flexJustifyCentre}>{job.title}</h2>
+                <h5 style={styles.flexJustifyCentre}>{job?.dates} | {job?.location}</h5>
               </div>
               <div
                 style={{
@@ -116,43 +117,6 @@ export default function MobileCareerComponent() {
                   );
             })}
             </ul>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "start",
-                }}
-              >
-                <div
-                  style={{
-                    justifyContent: "start",
-                    display: "flex",
-                    alignItems: "center"
-                  }}
-                >
-                  <Date
-                    style={{
-                      height: "50px",
-                      width: "50px",
-                      padding: "5px",
-                    }}
-                  ></Date>
-                  <h5>{job?.dates}</h5>
-                </div>
-                <div
-                  style={{
-                    justifyContent: "start",
-                    display: "flex",
-                    alignItems: "center"
-                  }}
-                >
-                  <Location
-                    style={styles.locationIcon}
-                  ></Location>
-                  <h5>{job?.location}</h5>
-                </div>
               </div>
             </Paper>
           </Paper>

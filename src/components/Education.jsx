@@ -16,14 +16,15 @@ const EducationComponent = () => {
     },
     paperContainer: {
       width: "100%",
-      padding: "20px",
+      padding: isMobile ? "10px" : "20px",
       justifyContent: "space-between",
       display: "flex",
       flexDirection: isMobile ? "column" : "row",
+      gap: isMobile && "10px"
     },
     schoolContainer: {
       width: isMobile ? null : "100%",
-      margin: "15px",
+      margin: !isMobile && "15px",
       padding: "10px",
       textAlign: "center",
       ":hover": {

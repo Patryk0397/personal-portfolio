@@ -60,6 +60,9 @@ export default function SkillsComponent() {
       width: isMobile ? "45px" : "70px",
       cursor: "pointer",
     },
+    lastChild: {
+      gridColumn: "3/4"
+    }
   };
 
   return (
@@ -76,10 +79,9 @@ export default function SkillsComponent() {
         sx={{
           width: "100%",
           padding: "10px",
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-between",
-          gap: "0.5rem"
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
+          gap: "5px",
         }}
       >
         <Tooltip sx={styles.tooltip} title={"JavaScript"}>
@@ -119,7 +121,7 @@ export default function SkillsComponent() {
           <Sentry style={styles.skillTile}></Sentry>
         </Tooltip>
         <Tooltip title={"Git"}>
-          <Git style={styles.skillTile}></Git>
+          <Git style={{...styles.skillTile, ...styles.lastChild}}></Git>
         </Tooltip>
       </Paper>
     </div>
