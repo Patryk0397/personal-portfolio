@@ -5,8 +5,6 @@ import { jobs } from "../constants/jobs";
 import { ReactComponent as Entwined } from "../media/entwined.svg";
 import { ReactComponent as Dpd } from "../media/dpd.svg";
 import { ReactComponent as Tm8 } from "../media/tm8.svg";
-import { ReactComponent as Date } from "../media/date.svg";
-import { ReactComponent as Location } from "../media/location.svg";
 
 export default function MobileCareerComponent() {
   const styles = {
