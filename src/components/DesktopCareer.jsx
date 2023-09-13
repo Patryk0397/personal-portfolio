@@ -106,7 +106,7 @@ export default function DesktopCareerComponent() {
       )
     } else {
       return (
-        <Tm8 style={styles.dpdLogo}></Tm8>
+        <Entwined style={styles.dpdLogo}></Entwined>
       )
     }
   }
