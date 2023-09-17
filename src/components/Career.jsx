@@ -2,7 +2,7 @@ import * as React from "react";
 import { Paper } from "@mui/material";
 import { jobs } from "../constants/jobs";
 
-import { ReactComponent as Entwined } from "../media/entwined.svg";
+// import { ReactComponent as Entwined } from "../media/entwined.svg";
 import { ReactComponent as Dpd } from "../media/dpd.svg";
 import { ReactComponent as Tm8 } from "../media/tm8.svg";
 import { ReactComponent as Date } from "../media/date.svg";
@@ -59,11 +59,12 @@ export default function CareerComponent() {
       return (
         <Dpd style={styles.logo}></Dpd>
       )
-    }  else if (company === "Entwined") {
-      return (
-        <Entwined style={styles.logo}></Entwined>
-      )
     }
+    //  else if (company === "Entwined") {
+    //   return (
+    //     <Entwined style={styles.logo}></Entwined>
+    //   )
+    // }
   }
 
   return (
