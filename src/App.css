@@ -1,7 +1,8 @@
 .App {
   display: flex;
   flex-direction: column;
-  gap: 10px !important
+  gap: 10px !important;
+  overflow: hidden;
 }
 
 * , *:before, *:after{
