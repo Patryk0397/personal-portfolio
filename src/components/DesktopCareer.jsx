@@ -5,13 +5,14 @@ import { ReactComponent as Entwined } from "../media/entwined.svg";
 import { ReactComponent as Dpd } from "../media/dpd.svg";
 import { ReactComponent as Tm8 } from "../media/tm8.svg";
 import { generateSkillTiles } from "../util/skill";
+// import Entwined from "../media/entwined.svg";
 
 export default function DesktopCareerComponent() {
   const [selectedJob, setSelectedJob] = React.useState(jobs[0]);
 
   const styles = {
     main: {
-      padding: "20px",
+      padding: "0 20px",
     },
     componentContainer: {
       width: "100%",

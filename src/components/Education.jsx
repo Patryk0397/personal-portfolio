@@ -1,6 +1,7 @@
 import { Paper } from "@mui/material";
 import { schools } from "../constants/education";
 import { useState } from "react";
+import { ReactComponent as Coventry } from "../media/coventry.svg";
 const EducationComponent = () => {
 
   const [width, setWidth] = useState(window.innerWidth);
@@ -12,7 +13,11 @@ const EducationComponent = () => {
       flexDirection: "row",
       left: "0",
       right: "0",
-      padding: "20px",
+      padding: "0 20px",
+    },
+    logo: {
+      height: "200px",
+      margin: "-40px"
     },
     paperContainer: {
       width: "100%",
@@ -23,9 +28,9 @@ const EducationComponent = () => {
       gap: isMobile && "10px"
     },
     schoolContainer: {
-      width: isMobile ? null : "100%",
+      width: "100%",
       margin: !isMobile && "15px",
-      padding: "10px",
+      padding: isMobile ? "10px" : "20px",
       textAlign: "center",
       ":hover": {
         background: "#f5f5f5",
@@ -34,29 +39,29 @@ const EducationComponent = () => {
       flexDirection: "column",
       justifyContent: "center",
     },
-    courseNames: { margin: "5px" }
+    courseNames: {
+      margin: "5px",
+      fontSize: isMobile && "18px"
+    },
+    dates: {
+      fontSize: isMobile && "18px",
+      fontWeight: isMobile && "400"
+    }
   }
 
   return (
     <div style={styles.main}>
-      <Paper
-        variant="elevation"
-        elevation={6}
-        sx={styles.paperContainer}
-      >
         {schools.map((school, index) => {
           return (
             <Paper key={index} variant="elevation" elevation={2} sx={styles.schoolContainer}>
-              <h2>{school.name}</h2>
-              <h3>{school.courseType}</h3>
+              <Coventry style={styles.logo}></Coventry>
                 {school.courseNames.map((courseName, index) => {
-                  return <h4 style={styles.courseNames} key={index}>{courseName}</h4>
+                  return <h2 style={styles.courseNames} key={index}>{courseName}</h2>
                 })}
-              <h4>{school.dates}</h4>
+              <h2 style={styles.dates}>{school.dates}</h2>
             </Paper>
           )}
         )}
-      </Paper>
     </div>
   );
 

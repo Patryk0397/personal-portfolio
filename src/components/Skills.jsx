@@ -34,7 +34,7 @@ export default function SkillsComponent() {
   const styles = {
     main: {
       display: "flex",
-      padding: "20px",
+      padding: "0 20px",
     },
     gridContainer: {
       width: "100%",
