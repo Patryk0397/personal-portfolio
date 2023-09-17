@@ -48,8 +48,9 @@ export default function MobileCareerComponent() {
       width: "20%",
     },
     employerIcon: { height: "7em", padding: "15px" },
-    dpdLogo: { opacity: "50%", width: "50%", height: "40px" },
-    tm8Logo: { opacity: "50%", width: "50%" },
+    dpdLogo: { opacity: "75%", width: "50%", height: "40px" },
+    tm8Logo: { opacity: "75%", width: "50%" },
+    entLogo: { opacity: "75%" },
     companyLogoContainer: { display: "flex", minHeight: "40px" },
     listItemText: { fontSize: "14px" },
     skillsContainer: {
@@ -78,7 +79,7 @@ export default function MobileCareerComponent() {
       )
     } else {
       return (
-        <Entwined style={styles.tm8Logo}></Entwined>
+        <Entwined style={styles.entLogo}></Entwined>
       )
     }
   }
