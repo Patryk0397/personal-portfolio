@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Paper } from "@mui/material";
 import { jobs } from "../constants/jobs";
 
-// import { ReactComponent as Entwined } from "../media/entwined.svg";
+import { ReactComponent as Entwined } from "../media/entwined.svg";
 import { ReactComponent as Dpd } from "../media/dpd.svg";
 import { ReactComponent as Tm8 } from "../media/tm8.svg";
 import { generateSkillTiles } from "../util/skill";
@@ -78,7 +78,7 @@ export default function MobileCareerComponent() {
       )
     } else {
       return (
-        <Tm8 style={styles.tm8Logo}></Tm8>
+        <Entwined style={styles.tm8Logo}></Entwined>
       )
     }
   }
