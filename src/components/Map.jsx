@@ -14,8 +14,8 @@ function MapComponent() {
   useEffect(() => {
     const map = new mapboxgl.Map({
       container: 'map', // Replace 'map' with the ID of your map container
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [0,0], // Birmingham coordinates
+      style: 'mapbox://styles/mapbox/light-v11',
+      center: [25,50], // Birmingham coordinates
       zoom: 1,
     });
 
@@ -57,7 +57,7 @@ function MapComponent() {
   return (
     <div style={styles.main}>
       <Paper variant="elevation" elevation={6} sx={styles.mapContainer}>
-        <ImagesComponent></ImagesComponent>
+        {/* <ImagesComponent></ImagesComponent> */}
         <div id="map" style={{ width: '100%', height: '400px' }}></div>
       </Paper>
     </div>
