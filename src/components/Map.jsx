@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import { Paper } from "@mui/material";
+import {markers} from "../constants/travelPoints"
+import ImagesComponent from "./ImageList";
+
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
@@ -17,11 +20,13 @@ function MapComponent() {
     });
 
     map.on('load', () => {
-      // Add a marker for Birmingham
-      new mapboxgl.Marker()
-        .setLngLat([ -1.893592, 52.486243])
-        .setPopup(new mapboxgl.Popup().setHTML('Birmingham'))
+      for (const marker of markers) {
+        new mapboxgl.Marker()
+        .setLngLat(marker.coords)
+        .setPopup(new mapboxgl.Popup().setHTML(marker.location))
         .addTo(map);
+      }
+
     });
 
     // Cleanup the map when the component unmounts
@@ -38,7 +43,6 @@ function MapComponent() {
     },
     mapContainer: {
       width: "100%",
-      margin: !isMobile && "15px",
       padding: isMobile ? "10px" : "20px",
       textAlign: "center",
       ":hover": {
@@ -52,7 +56,8 @@ function MapComponent() {
 
   return (
     <div style={styles.main}>
-      <Paper variant="elevation" elevation={2} sx={styles.mapContainer}>
+      <Paper variant="elevation" elevation={6} sx={styles.mapContainer}>
+        <ImagesComponent></ImagesComponent>
         <div id="map" style={{ width: '100%', height: '400px' }}></div>
       </Paper>
     </div>

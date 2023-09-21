@@ -29,7 +29,6 @@ const EducationComponent = () => {
     },
     schoolContainer: {
       width: "100%",
-      margin: !isMobile && "15px",
       padding: isMobile ? "10px" : "20px",
       textAlign: "center",
       ":hover": {
@@ -53,7 +52,7 @@ const EducationComponent = () => {
     <div style={styles.main}>
         {schools.map((school, index) => {
           return (
-            <Paper key={index} variant="elevation" elevation={2} sx={styles.schoolContainer}>
+            <Paper key={index} variant="elevation" elevation={6} sx={styles.schoolContainer}>
               <Coventry style={styles.logo}></Coventry>
                 {school.courseNames.map((courseName, index) => {
                   return <h2 style={styles.courseNames} key={index}>{courseName}</h2>
