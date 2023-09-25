@@ -28,7 +28,6 @@ export default function LandingPage() {
       justifyContent: !isMobile && "space-between",
       alignItems: isMobile && "center",
       gap: "5%",
-      maxHeight: "100vh"
     },
     image: {
       width: "75%",
