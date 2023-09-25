@@ -26,12 +26,14 @@ export default function LandingPage() {
       display: "flex",
       flexDirection: isMobile ? "column" : "row",
       justifyContent: !isMobile && "space-between",
-      gap: "5%"
+      alignItems: isMobile && "center",
+      gap: "5%",
+      maxHeight: "100vh"
     },
     image: {
-      width: "50%",
+      width: "75%",
       height: isMobile ? "25%" : "50%",
-      maskImage: "linear-gradient(to left, transparent 15%, black 100%);",
+      maskImage:  isMobile ? "linear-gradient(to top, transparent 5%, black 85%);" : "linear-gradient(to left, transparent 15%, black 100%);",
     },
     shortProfile: {
       paddingTop: "20px",
@@ -84,7 +86,7 @@ export default function LandingPage() {
         component="img"
         sx={styles.image}
         alt="Image"
-        src={require("../media/milan.jpeg")}
+        src={isMobile ? require("../images/me.png") : require("../media/milan.jpeg")}
       />
       <Box
         sx={styles.shortProfileContainer}      >

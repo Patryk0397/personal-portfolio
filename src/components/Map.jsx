@@ -15,8 +15,8 @@ function MapComponent() {
     const map = new mapboxgl.Map({
       container: 'map', // Replace 'map' with the ID of your map container
       style: 'mapbox://styles/mapbox/light-v11',
-      center: [25,50], // Birmingham coordinates
-      zoom: 1,
+      center: [25,50],
+      zoom: isMobile ? 1 : 2,
     });
 
     map.on('load', () => {
@@ -58,7 +58,7 @@ function MapComponent() {
     <div style={styles.main}>
       <Paper variant="elevation" elevation={6} sx={styles.mapContainer}>
         {/* <ImagesComponent></ImagesComponent> */}
-        <div id="map" style={{ width: '100%', height: '400px' }}></div>
+        <div id="map" style={{ width: '100%', height: isMobile ? '400px' : '700px' }}></div>
       </Paper>
     </div>
   );
