@@ -84,7 +84,7 @@ export default function LandingPage() {
         component="img"
         sx={styles.image}
         alt="Image"
-        src={require("../images/milan.jpeg")}
+        src={require("../media/milan.jpeg")}
       />
       <Box
         sx={styles.shortProfileContainer}      >
